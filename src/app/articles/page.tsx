@@ -1,13 +1,21 @@
 import { DocumentNode } from "@apollo/client";
 import { portalApolloClient } from "@/helpers/apolloClient";
 import { FETCHCONFIG } from "@/helpers/graphql/queries";
-import { useGetAllCategories } from "@/helpers/fetchData/actions/hooks/articles";
+import { getAllCategories } from "@/helpers/fetchData/actions/hooks/articles";
 import { getAllContent } from "@/helpers/fetchData/fetchData";
+import { getCategoryArticlesData } from "@/helpers/fetchData/article-page";
+import extractDataFromSections from "@/helpers/extractDataFRomSections";
 
-export async function getStaticProps({ query }: { query: DocumentNode }) {
+const getProps = async (query?: DocumentNode) => {
+  // export async function getStaticProps(query: DocumentNode) {
   const pageConfig = await portalApolloClient().query({
     query: FETCHCONFIG,
     variables: { route: "lifestyle/overview", site: "twistedfood" },
+    context: {
+      fetchOptions: {
+        next: { revalidate: 10 },
+      },
+    },
   });
 
   const {
@@ -25,7 +33,7 @@ export async function getStaticProps({ query }: { query: DocumentNode }) {
   let data: { [key: string]: any } = {};
 
   if (pageSections) {
-    let categories = await useGetAllCategories();
+    let categories = await getAllCategories();
     let wpCategories = await getAllContent(
       `categories?_fields=name,id,parent,slug`
     );
@@ -58,12 +66,12 @@ export async function getStaticProps({ query }: { query: DocumentNode }) {
       title: pageTitle,
       lifestyle: [],
       rawShowsSliderData,
-    //   shows: showsSliderData,
+      //   shows: showsSliderData,
       headerData,
-    //   headerCarousel,
+      //   headerCarousel,
       rawHeaderCarouselData,
       rawArticleCategoriesData,
-    //   featuredArticleCarousel,
+      //   featuredArticleCarousel,
       rawFeaturedArticleCarouselData,
       pageSections,
       articleCategoryData,
@@ -78,11 +86,21 @@ export async function getStaticProps({ query }: { query: DocumentNode }) {
       props: {
         data,
       },
-      revalidate: 10,
     };
   }
 
   return {
     notFound: true,
   };
+};
+
+export default async function ArticlesList() {
+  const data = await getProps();
+  const props = data?.props;
+
+  //   return props?.data?.slug ? (
+  //     <ArticlesPageV2 {...props} />
+  //   ) : (
+  //     <ArticlesIndexPage {...props} />
+  //   );
 }

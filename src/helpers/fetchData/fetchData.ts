@@ -31,3 +31,20 @@ export const getAllContent = (
     resolve(data);
   });
 };
+
+export const getContentAndHeaders = async (endpoint: string) => {
+  let data = null;
+  await axios
+    .get(`${process.env.WP_API_URL}${endpoint}`)
+    .then((res) => {
+      data = {
+        data: res.data,
+        headers: res.headers,
+      };
+    })
+    .catch((err) => {
+      console.error(err);
+      return {};
+    });
+  return data;
+};
