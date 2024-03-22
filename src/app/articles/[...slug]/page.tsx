@@ -1,3 +1,4 @@
+import ArticleDetailPage from "@/components/Articles/components/ArticleDetailPage";
 import { getAllCategories } from "@/helpers/fetchData/actions/hooks/articles";
 import {
   isArticleCategoryPage,
@@ -5,13 +6,22 @@ import {
   getPageData as getArticlePageData,
 } from "@/helpers/render/renderArticlePage";
 
-export async function getStaticProps({
-  params,
-  ...context
-}: {
-  params: { slug: string; context: Record<string, any> };
-}) {
-  const pageSlug = params.slug;
+const Article = async ({ params, ...context }: any) => {
+  const data = await getProps({ params, ...context?.searchParams });
+  // console.log("technok", data);
+
+  // switch (props?.data?.type) {
+  //     case "article":
+  return <ArticleDetailPage props={data?.props} />;
+  //     case "articles":
+  //         return <ArticlesPageV2 {...props} />;
+  //     default:
+  //         return <PageNotFound />;
+  // }
+};
+
+async function getProps(props: { [key: string]: any }) {
+  const pageSlug = props.params.slug;
   let categories = await getAllCategories();
 
   const { isCategory, category } = isArticleCategoryPage(categories, pageSlug);
@@ -25,9 +35,9 @@ export async function getStaticProps({
     return categoryPageData;
   }
 
-  return getArticlePageData(context, pageSlug ? true : false)
+  return getArticlePageData(pageSlug, false)
     .then((articlePageData: Record<string, any>) => {
-      return { props: { ...articlePageData.props }, revalidate: 3600 };
+      return { props: { ...articlePageData.props } };
     })
     .catch((error: Record<string, any>) => {
       console.error(error);
@@ -35,4 +45,4 @@ export async function getStaticProps({
     });
 }
 
-// export default Article;
+export default Article;

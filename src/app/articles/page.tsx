@@ -6,8 +6,19 @@ import { getAllContent } from "@/helpers/fetchData/fetchData";
 import { getCategoryArticlesData } from "@/helpers/fetchData/article-page";
 import extractDataFromSections from "@/helpers/extractDataFRomSections";
 
+export default async function ArticlesList() {
+  const data = await getProps();
+  const props = data?.props;
+// console.log(props);
+
+  //   return props?.data?.slug ? (
+  //     <ArticlesPageV2 {...props} />
+  //   ) : (
+  //     <ArticlesIndexPage {...props} />
+  //   );
+}
+
 const getProps = async (query?: DocumentNode) => {
-  // export async function getStaticProps(query: DocumentNode) {
   const pageConfig = await portalApolloClient().query({
     query: FETCHCONFIG,
     variables: { route: "lifestyle/overview", site: "twistedfood" },
@@ -93,14 +104,3 @@ const getProps = async (query?: DocumentNode) => {
     notFound: true,
   };
 };
-
-export default async function ArticlesList() {
-  const data = await getProps();
-  const props = data?.props;
-
-  //   return props?.data?.slug ? (
-  //     <ArticlesPageV2 {...props} />
-  //   ) : (
-  //     <ArticlesIndexPage {...props} />
-  //   );
-}
