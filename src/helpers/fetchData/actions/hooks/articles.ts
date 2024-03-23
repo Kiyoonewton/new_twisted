@@ -11,7 +11,7 @@ import {
 } from "../gql/articles";
 import { timeSince } from "@/helpers/formatDatetime";
 
-export const getAllCategories = async () => {
+export const getAllCategoriesData = async () => {
   let categoriesData;
 
   try {
@@ -23,7 +23,7 @@ export const getAllCategories = async () => {
   }
 };
 
-export const useGetArticle = async (slug: string) => {
+export const getArticle = async (slug: string) => {
   try {
     const data = await gqlGetArticle(slug);
     const articleData = data?.data?.getBlogPostByBlogUuidAndSlug;
@@ -33,10 +33,10 @@ export const useGetArticle = async (slug: string) => {
     const imageData = parseRecursive(articleData?.featured_image);
     const authorName = articleData?.author?.name;
     const related_posts = JSON.parse(
-      articleData?.postConfig?.related_posts_config ?? "[]"
+      articleData?.postConfig?.related_posts_config ?? "[]",
     );
     const meta_tags = JSON.parse(
-      articleData?.postConfig?.social_preview_config ?? "{}"
+      articleData?.postConfig?.social_preview_config ?? "{}",
     );
 
     return {
@@ -89,7 +89,7 @@ export const getBlogArticles = async (
   page: number,
   first: number,
   search: string,
-  filter: Record<string, any>[] = []
+  filter: Record<string, any>[] = [],
 ) => {
   try {
     const response = await gqlGetBlogArticles(page, first, search, [
@@ -101,14 +101,14 @@ export const getBlogArticles = async (
       },
     ]);
     return response.data.getBlogPostsByBlogUuid.data.map(
-      (articleData: Record<string, any>) => formatArticleData(articleData)
+      (articleData: Record<string, any>) => formatArticleData(articleData),
     );
   } catch (e) {
     return [];
   }
 };
 
-export const useGetAllCategories = async () => {
+export const getAllCategories = async () => {
   let categoriesData;
 
   try {

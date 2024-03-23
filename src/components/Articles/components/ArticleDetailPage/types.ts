@@ -9,6 +9,7 @@ export type PageContentProps = {
   slug: string;
   excerpt: string;
   hero_images: HeroImagesProps;
+  canonical?: string;
   meta: MetasProps;
   tags: string[];
   category: ArticleCategorieProps;

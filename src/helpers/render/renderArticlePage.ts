@@ -2,8 +2,8 @@ import { portalApolloClient } from "../apolloClient";
 import { allowedArticleCategories, getValidCategory } from "../category";
 import extractDataFromSections from "../extractDataFRomSections";
 import {
-  useGetAllCategories,
-  useGetArticle,
+  getAllCategoriesData,
+  getArticle,
 } from "../fetchData/actions/hooks/articles";
 import {
   getArticlesSliderOne,
@@ -15,7 +15,7 @@ import { FETCHCONFIG } from "../graphql/queries";
 
 export const getPageData = async (
   pageSlug: Record<string, any>,
-  isPreview = false
+  isPreview = false,
 ) => {
   let slug;
   if (pageSlug.length === 1) {
@@ -23,13 +23,13 @@ export const getPageData = async (
   } else {
     slug = `/${pageSlug[0]}/${pageSlug[1]}`;
   }
-  const allCategories = await useGetAllCategories();
+  const allCategories = await getAllCategoriesData();
 
-  let articleData: Record<string, any> | any = await useGetArticle(slug);
+  let articleData: Record<string, any> | any = await getArticle(slug);
   let validCategory = getValidCategory(
     allCategories,
     articleData.categories.map((item: { id: string }) => item.id),
-    "articles"
+    "articles",
   )[0];
   articleData.category = validCategory ?? { uuid: null };
 
@@ -64,7 +64,7 @@ export const getPageData = async (
 
 export const isArticleCategoryPage = (
   categories: { slug: string; name: string }[],
-  pageSlug: string
+  pageSlug: string,
 ) => {
   let slug = "/" + pageSlug.slice(-1)[0];
   let category = categories.filter((item) => item.slug == slug);
@@ -83,7 +83,7 @@ export const isArticleCategoryPage = (
 export const getCategoryPageData = async (
   categories: any,
   category: { slug: string; name: string }[],
-  pageSlug: string
+  pageSlug: string,
 ) => {
   if (!allowedArticleCategories.includes(category[0].slug.slice(1))) {
     return {

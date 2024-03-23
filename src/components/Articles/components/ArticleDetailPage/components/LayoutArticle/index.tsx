@@ -1,4 +1,4 @@
-import { useRef } from "react";
+// import { useRef } from "react";
 import {
   INSTAGRAM_URL,
   SITE_URL,
@@ -9,14 +9,16 @@ import {
 // import SharedHeader from "./../sections/shared/header";
 // import SharedFooter from "./../sections/shared/footer";
 import Cookies from "js-cookie";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/navigation";
 import { LayoutArticleProps } from "@/components/types";
 import HeadTags from "@/components/Head-tags";
+import style from "./style.module.scss";
+import clx from "classnames";
+import { Metadata } from "next";
 // import { ArticleSchema } from "../../helpers/schema/articleSchema";
 // import FreeRecipeList from "../default-popup-modals/free-recipe-list";
 
 function LayoutArticle(props: LayoutArticleProps) {
-  // States
   const page = {
     ...props.page,
     identifier: props.page.identifier ?? "Default",
@@ -30,13 +32,13 @@ function LayoutArticle(props: LayoutArticleProps) {
   const hasVisitedTwoArticles =
     parsedArticleHistory && parsedArticleHistory.length == 2;
   const contentAds = SNACKBAR_DESKTOP_AD_UNIT_CONTENT;
-  const router = useRouter();
-  const path = router.asPath.split("/").slice(-1)[0];
+  //   const router = useRouter();
+  //   const path = router.asPath.split("/").slice(-1)[0];
   //   const [showPopup, setShowPopup] = useState(false);
   //   const [footerSize, setFooterSize] = useState(0);
 
   // Refs
-  const containerRef = useRef(null);
+  //   const containerRef = useRef(null);
 
   //   useEffect(() => {
   //     setTimeout(() => {
@@ -69,9 +71,8 @@ function LayoutArticle(props: LayoutArticleProps) {
   //   }, [parsedArticleHistory]);
 
   return (
-    <div className={"layout layout--article"}>
-      {/* SEO */}
-      <HeadTags
+    <section>
+      {/* <HeadTags
         page={page}
         twitter={props.twitter}
         facebook={{
@@ -82,28 +83,24 @@ function LayoutArticle(props: LayoutArticleProps) {
               : props.facebook?.image,
         }}
         meta={props.meta}
-      >
-        {/* <ArticleSchema article={props?.article} /> */}
-        <meta property="ia:markup_url" content={`${SITE_URL}/ia${page.path}`} />
-        <link rel="preload" href={`${TIKTOK_URL}/embed.js`} as="script" />
-        <link rel="preload" href={`${INSTAGRAM_URL}/embed.js`} as="script" />
-        <link
-          rel="preload"
-          href={`${TWITTER_PLATFORM_URL}/widgets.js`}
-          as="script"
-        />
-      </HeadTags>
-      {/* ./SEO */}
-
-      {/* Page HTML */}
+      > */}
+      {/* <ArticleSchema article={props?.article} /> */}
+      {/* <meta property="ia:markup_url" content={`${SITE_URL}/ia${page.path}`} />
+      <link rel="preload" href={`${TIKTOK_URL}/embed.js`} as="script" />
+      <link rel="preload" href={`${INSTAGRAM_URL}/embed.js`} as="script" />
+      <link
+        rel="preload"
+        href={`${TWITTER_PLATFORM_URL}/widgets.js`}
+        as="script"
+      /> */}
+      {/* </HeadTags> */}
       <main
         data-scroll-container
-        ref={containerRef}
+        // ref={containerRef}
         style={{ position: "relative" }}
       >
-        <div data-scroll-section>
-          {/* Header */}
-          <div
+        <article data-scroll-section>
+          <header
             data-scroll
             data-scroll-sticky
             data-scroll-target={"#page"}
@@ -118,28 +115,21 @@ function LayoutArticle(props: LayoutArticleProps) {
                 props.headerTransparent ? props.headerTransparent : false
               }
             /> */}
-          </div>
-          {/* ./Header */}
-
-          {/* Page */}
-          {/* <div id={"page"} className={`page page--${page.identifier}`}>
+          </header>
+          <div id={"page"} className={clx(style.page)}>
             {props.children}
-          </div> */}
-          {/* ./Page */}
-          <div>
+          </div>
+          <footer>
             {/* <SharedFooter
               smallFooter={props.smallFooter ? props.smallFooter : false}
             >
               {props.footerContent && props.footerContent}
             </SharedFooter> */}
-          </div>
-          {/* ./Footer */}
-        </div>
+          </footer>
+        </article>
         {/* {showPopup && <FreeRecipeList closeModal={() => setShowPopup(false)} />} */}
       </main>
-
-      {/* Page HTML */}
-    </div>
+    </section>
   );
 }
 
