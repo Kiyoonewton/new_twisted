@@ -1,0 +1,20 @@
+h1,
+.h1 {
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  padding: 0;
+  color: $tertiaryColor;
+  font-family: $primaryFontFamily;
+  font-size: 80px;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  line-height: 1.05;
+
+  @include media-lt-1200 {
+    font-size: 8vw;
+  }
+
+  @include media-lt-600 {
+    font-size: 38px;
+  }
+}
