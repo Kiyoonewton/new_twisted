@@ -2,17 +2,12 @@ import { ReactNode } from "react";
 
 export type LayoutArticleProps = {
   page: LayoutArticle_pageProps;
-  meta: Metas_tagProps;
-  facebook: Metas_tagProps;
-  twitter: Metas_tagProps;
   article?: LayoutArticle_contentProps;
   children: ReactNode;
 };
 
 export type LayoutArticle_pageProps = {
   identifier: string;
-  path: string;
-  canonical: string;
 };
 
 export type LayoutArticle_contentProps = {

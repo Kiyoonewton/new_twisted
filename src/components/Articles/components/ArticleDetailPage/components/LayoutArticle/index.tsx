@@ -20,9 +20,7 @@ import { Metadata } from "next";
 
 function LayoutArticle(props: LayoutArticleProps) {
   const page = {
-    ...props.page,
     identifier: props.page.identifier ?? "Default",
-    name: "TwistedFood",
   };
 
   const articleHistory = Cookies.get("articleHistory");
@@ -116,7 +114,10 @@ function LayoutArticle(props: LayoutArticleProps) {
               }
             /> */}
           </header>
-          <div id={"page"} className={clx(style.page)}>
+          <div
+            id={"page"}
+            className={clx(style.page, style[`page--${page.identifier}`])}
+          >
             {props.children}
           </div>
           <footer>

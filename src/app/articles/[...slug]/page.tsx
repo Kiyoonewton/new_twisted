@@ -57,7 +57,6 @@ const Article = async ({ params, ...context }: Props) => {
   //     case "article":
   return (
     <>
-      <h1 style={{ color: "black" }}>father</h1>
       <ArticleDetailPage props={data?.props} />
     </>
   );

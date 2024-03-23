@@ -21,16 +21,19 @@ export type PageContentProps = {
   meta_tags: Metas_tagProps;
   facebook_tags: Metas_tagProps;
   twitter_tags: Metas_tagProps;
+  id: string;
 };
 
 export type AuthorProps = {
   name: string;
   slug: string;
   profile_photo: Profile_photoProps;
+  id: string;
 };
 
 export type Profile_photoProps = {
-  size: { thumbnail: string };
+  sizes: { thumbnail: string };
+  alt: string;
 };
 
 export type HeroImagesProps = {

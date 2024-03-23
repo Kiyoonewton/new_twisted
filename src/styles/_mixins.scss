@@ -1,0 +1,60 @@
+/*** Responsive Queries ***/
+@mixin media-lt-1600 {
+  @media screen and (max-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin media-lt-1500 {
+  @media screen and (max-width: 1500px) {
+    @content;
+  }
+}
+
+@mixin media-lt-1440 {
+  @media screen and (max-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin media-lt-1400 {
+  @media screen and (max-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin media-lt-1200 {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin media-lt-950 {
+  @media screen and (max-width: 950px) {
+    @content;
+  }
+}
+
+@mixin media-lt-900 {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin media-lt-750 {
+  @media screen and (max-width: 750px) {
+    @content;
+  }
+}
+
+@mixin media-lt-600 {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin media-lt-400 {
+  @media screen and (max-width: 400px) {
+    @content;
+  }
+}

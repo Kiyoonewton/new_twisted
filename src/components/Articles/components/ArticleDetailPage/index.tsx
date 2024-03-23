@@ -2,9 +2,13 @@ import React, { FC } from "react";
 import { ArticleDetailPageProps } from "./types";
 import { GPT_AD_UNITS } from "@/config";
 import LayoutArticle from "./components/LayoutArticle";
+import style from "./styles.module.scss";
+import { convertTimestampToDateString } from "@/helpers/functions";
+import ArticleDetailsTitle from "./components/ArticleDetailsTitle";
+
 const ArticleDetailPage: FC<ArticleDetailPageProps> = (articleData) => {
   const props = articleData?.props;
-  //   console.log("valent===>", articleData?.props);
+  const { author, tags: articleTags } = props.data.page_content;
   const {
     sidebar: { right: adProps },
   } = GPT_AD_UNITS;
@@ -13,41 +17,6 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (articleData) => {
     <LayoutArticle
       page={{
         identifier: "article-details",
-        path: `/articles${props.data.page_content.slug}`,
-        canonical: `/articles${props.data.page_content.canonical}`,
-      }}
-      meta={{
-        title: props.data.page_content.meta.meta_tags
-          ? props.data.page_content.meta_tags.title
-          : "",
-        description: props.data.page_content.meta.meta_tags
-          ? props.data.page_content.meta_tags.description
-          : "",
-        image: props.data.page_content.meta.meta_tags
-          ? props.data.page_content.meta_tags.image
-          : "",
-      }}
-      facebook={{
-        title: props.data.page_content.meta.facebook_tags
-          ? props.data.page_content.facebook_tags.title
-          : "",
-        description: props.data.page_content.meta.facebook_tags
-          ? props.data.page_content.facebook_tags.description
-          : "",
-        image: props.data.page_content.meta.facebook_tags
-          ? props.data.page_content.facebook_tags.image
-          : "",
-      }}
-      twitter={{
-        title: props.data.page_content.meta.twitter_tags
-          ? props.data.page_content.twitter_tags.title
-          : "",
-        description: props.data.page_content.meta.twitter_tags
-          ? props.data.page_content.twitter_tags.description
-          : "",
-        image: props.data.page_content.meta.twitter_tags
-          ? props.data.page_content.twitter_tags.image
-          : "",
       }}
       article={{
         image:
@@ -62,7 +31,80 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (articleData) => {
         content: props.data.page_content.content,
       }}
     >
-      <h1 style={{ color: "black" }}>going out</h1>
+      <div className={style["article-details__container"]}>
+        <div className={style["article-details__inner"]}>
+          {props.data.page_content && (
+            <ArticleDetailsTitle
+              text={{
+                title: props.data.page_content.title,
+                excerpt: props.data.page_content.excerpt,
+              }}
+              user={{
+                name: author ? author.name : "",
+                image: {
+                  src:
+                    author && author.profile_photo
+                      ? author.profile_photo.sizes.thumbnail
+                      : "/image-twisted-placeholder.svg",
+                  blur:
+                    author && author.profile_photo
+                      ? author.profile_photo.sizes.thumbnail
+                      : "/image-twisted-placeholder.svg",
+                  alt:
+                    author && author.profile_photo
+                      ? author.profile_photo.alt
+                      : "",
+                },
+                id: author?.id ?? "",
+              }}
+              hero_image={{ hero_images: props.data.page_content.hero_images }}
+              details={{
+                date:
+                  convertTimestampToDateString(
+                    props.data.page_content.post_date,
+                  ) ?? "",
+                time: props.data.page_content.reading_time ?? "",
+              }}
+              tags={articleTags}
+              //   showSocialModal={() => setShowSocialModal(true)}
+              id={props.data.page_content.id}
+              //   children={
+              //     <ArticleDetailsContent
+              //       user={{
+              //         name: author ? author.name : "",
+              //         image: {
+              //           src:
+              //             author && author.profile_photo
+              //               ? author.profile_photo.sizes.thumbnail
+              //               : "/image-twisted-placeholder.svg",
+              //           blur:
+              //             author && author.profile_photo
+              //               ? author.profile_photo.sizes.thumbnail
+              //               : "/image-twisted-placeholder.svg",
+              //           alt:
+              //             author && author.profile_photo
+              //               ? author.profile_photo.alt
+              //               : "",
+              //         },
+              //         id: author ? author.id : "",
+              //       }}
+              //       content={props.data.page_content.content}
+              //       //   contents={props.data.page_content.contents}
+              //       //   showSocialModal={() => setShowSocialModal(true)}
+              //       prevPost={props.data.previous_post}
+              //       nextPost={props.data.next_post}
+              //       article={{
+              //         title: props.data.page_content.title,
+              //         id: props.data.page_content.id,
+              //       }}
+              //       //   showAds={showAds}
+              //       adProps={adProps}
+              //     />
+              //   }
+            />
+          )}
+        </div>
+      </div>
     </LayoutArticle>
   );
 };
