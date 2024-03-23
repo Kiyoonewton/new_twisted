@@ -1,27 +1,27 @@
 :root {
   /* Tertiary Color */
-  tertiarycolor-100: #cfd0db;
-  tertiarycolor-200: #9ea1b7;
-  tertiarycolor-300: #6e7394;
-  tertiarycolor-400: #3d4470;
-  tertiarycolor-500: #0d154c;
-  tertiarycolor-600: #0a113d;
-  tertiarycolor-700: #080d2e;
-  tertiarycolor-800: #05081e;
-  tertiarycolor-900: #03040f;
-  tertiarycolor-lighter: tertiaryColor-100;
-  tertiarycolor-light: tertiaryColor-300;
-  tertiarycolor: tertiaryColor-500;
-  tertiarycolor-dark: tertiaryColor-700;
-  tertiarycolor-darker: tertiaryColor-900;
+  --tertiaryColor-100: #cfd0db;
+  --tertiaryColor-200: #9ea1b7;
+  --tertiaryColor-300: #6e7394;
+  --tertiaryColor-400: #3d4470;
+  --tertiaryColor-500: #0d154c;
+  --tertiaryColor-600: #0a113d;
+  --tertiaryColor-700: #080d2e;
+  --tertiaryColor-800: #05081e;
+  --tertiaryColor-900: #03040f;
+  --tertiaryColor-lighter: --tertiaryColor-100;
+  --tertiaryColor-light: --tertiaryColor-300;
+  --tertiaryColor: --tertiaryColor-500;
+  --tertiaryColor-dark: --tertiaryColor-700;
+  --tertiaryColor-darker: --tertiaryColor-900;
 }
 h1,
 .h1 {
   text-rendering: optimizeSpeed;
   margin: 0;
   padding: 0;
-  color: tertiaryColor;
-  font-family: primaryFontFamily;
+  color: --tertiaryColor;
+  font-family: --primaryFontFamily;
   font-size: 80px;
   font-weight: 400;
   font-variation-settings: "wght" 400;
