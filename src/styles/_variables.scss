@@ -1,0 +1,209 @@
+/****** Colors ******/
+/* Primary Color */
+$primaryColor-100: #fdddcf;
+$primaryColor-200: #fbbba0;
+$primaryColor-300: #f89a70;
+$primaryColor-400: #f67841;
+$primaryColor-500: #f45611;
+$primaryColor-600: #c3450e;
+$primaryColor-700: #92340a;
+$primaryColor-800: #622207;
+$primaryColor-900: #311103;
+$primaryColor-lighter: $primaryColor-100;
+$primaryColor-light: $primaryColor-300;
+$primaryColor: $primaryColor-500;
+$primaryColor-dark: $primaryColor-700;
+$primaryColor-darker: $primaryColor-900;
+
+/* Secondary Color */
+$secondaryColor-100: #fff8cc;
+$secondaryColor-200: #fff099;
+$secondaryColor-300: #ffe966;
+$secondaryColor-400: #ffe133;
+$secondaryColor-500: #ffda00;
+$secondaryColor-600: #ccae00;
+$secondaryColor-700: #998300;
+$secondaryColor-800: #665700;
+$secondaryColor-900: #332c00;
+$secondaryColor-lighter: $secondaryColor-100;
+$secondaryColor-light: $secondaryColor-300;
+$secondaryColor: $secondaryColor-500;
+$secondaryColor-dark: $secondaryColor-700;
+$secondaryColor-darker: $secondaryColor-900;
+
+/* Tertiary Color */
+$tertiaryColor-100: #cfd0db;
+$tertiaryColor-200: #9ea1b7;
+$tertiaryColor-300: #6e7394;
+$tertiaryColor-400: #3d4470;
+$tertiaryColor-500: #0d154c;
+$tertiaryColor-600: #0a113d;
+$tertiaryColor-700: #080d2e;
+$tertiaryColor-800: #05081e;
+$tertiaryColor-900: #03040f;
+$tertiaryColor-lighter: $tertiaryColor-100;
+$tertiaryColor-light: $tertiaryColor-300;
+$tertiaryColor: $tertiaryColor-500;
+$tertiaryColor-dark: $tertiaryColor-700;
+$tertiaryColor-darker: $tertiaryColor-900;
+
+/* Support Color */
+$supportColor-100: #fff6f2;
+$supportColor-200: #ffece4;
+$supportColor-300: #ffe4d8;
+$supportColor-400: #ffdaca;
+$supportColor-500: #ffd1bd;
+$supportColor-600: #cca797;
+$supportColor-700: #997e72;
+$supportColor-800: #66534b;
+$supportColor-900: #332a26;
+$supportColor-lighter: $supportColor-100;
+$supportColor-light: $supportColor-300;
+$supportColor: $supportColor-500;
+$supportColor-dark: $supportColor-700;
+$supportColor-darker: $supportColor-900;
+
+/* Info */
+$infoColor-100: #dfe5fe;
+$infoColor-200: #becbfe;
+$infoColor-300: #9eb0fd;
+$infoColor-400: #9eb0fd;
+$infoColor-500: #5d7cfc;
+$infoColor-600: #4a63ca;
+$infoColor-700: #384a97;
+$infoColor-800: #253265;
+$infoColor-900: #131932;
+$infoColor-lighter: $infoColor-100;
+$infoColor-light: $infoColor-300;
+$infoColor: $infoColor-500;
+$infoColor-dark: $infoColor-700;
+$infoColor-darker: $infoColor-900;
+
+/* Success */
+$successColor-100: #dcffde;
+$successColor-200: #b9ffbe;
+$successColor-300: #96ff9d;
+$successColor-400: #73ff7d;
+$successColor-500: #50ff5c;
+$successColor-600: #40cc4a;
+$successColor-700: #309937;
+$successColor-800: #206625;
+$successColor-900: #103312;
+$successColor-lighter: $successColor-100;
+$successColor-light: $successColor-300;
+$successColor: $successColor-500;
+$successColor-dark: $successColor-700;
+$successColor-darker: $successColor-900;
+
+/* Warning */
+$warningColor-100: #fff8cc;
+$warningColor-200: #fff099;
+$warningColor-300: #ffe966;
+$warningColor-400: #ffe133;
+$warningColor-500: #ffda00;
+$warningColor-600: #ccae00;
+$warningColor-700: #998300;
+$warningColor-800: #665700;
+$warningColor-900: #332c00;
+$warningColor-lighter: $warningColor-100;
+$warningColor-light: $warningColor-300;
+$warningColor: $warningColor-500;
+$warningColor-dark: $warningColor-700;
+$warningColor-darker: $warningColor-900;
+
+/* Danger */
+$dangerColor-100: #fdd7db;
+$dangerColor-200: #fcafb7;
+$dangerColor-300: #fa8792;
+$dangerColor-400: #f95f6e;
+$dangerColor-450: #f6374a;
+$dangerColor-500: #f7374a;
+$dangerColor-600: #c62c3b;
+$dangerColor-700: #94212c;
+$dangerColor-800: #63161e;
+$dangerColor-900: #310b0f;
+$dangerColor-lighter: $dangerColor-100;
+$dangerColor-light: $dangerColor-300;
+$dangerColor: $dangerColor-500;
+$dangerColor-dark: $dangerColor-700;
+$dangerColor-darker: $dangerColor-900;
+
+/* Support Color */
+$supportColor-100: #fff6f2;
+$supportColor-200: #ffede5;
+$supportColor-300: #ffe5d7;
+$supportColor-400: #ffdcca;
+$supportColor-500: #ffd3bd;
+$supportColor-600: #cca997;
+$supportColor-700: #997f71;
+$supportColor-800: #66544c;
+$supportColor-900: #332a26;
+$supportColor-lighter: $supportColor-100;
+$supportColor-light: $supportColor-300;
+$supportColor: $supportColor-500;
+$supportColor-dark: $supportColor-700;
+$supportColor-darker: $supportColor-900;
+
+/* Grey */
+$greyColor-100: #e7e7e7;
+$greyColor-200: #cfcfcf;
+$greyColor-300: #b8b8b8;
+$greyColor-400: #a0a0a0;
+$greyColor-500: #888888;
+$greyColor-600: #6d6d6d;
+$greyColor-700: #525252;
+$greyColor-800: #363636;
+$greyColor-900: #1b1b1b;
+$greyColor-lighter: $greyColor-100;
+$greyColor-light: $greyColor-300;
+$greyColor: $greyColor-500;
+$greyColor-dark: $greyColor-700;
+$greyColor-darker: $greyColor-900;
+
+/* Neutral */
+$whiteColor: #fff;
+$blackColor: #000;
+$backgroundBlue: #131a33;
+$backgroundGrey: #f6f7f7;
+
+/* Social */
+$facebook: #1a78f2;
+$twitter: #2aa2f5;
+$youtube: #f70511;
+$tiktok: #f70751;
+$instagram: #f72398;
+$whatsapp: #25d366;
+
+/****** FONTS ******/
+$primaryFontFamily: "Trade Gothic LT", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+  sans-serif;
+
+$secondaryFontFamily: "Commissioner Flair", "Commissioner", -apple-system,
+  BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+  "Helvetica Neue", sans-serif;
+
+$tertiaryFontFamily: "Made Gentle", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+  sans-serif;
+
+$supportFontFamily: "Trade Gothic LT", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+  sans-serif;
+
+/****** TRANSITIONS ******/
+$transitionEaseFast: all 0.26s ease;
+$transitionEaseMedium: all 0.5s ease;
+$transitionEaseSlow: all 1s ease;
+$transitionBounceFast: all 0.36s cubic-bezier(0.175, 0.98, 0.32, 1.275);
+$transitionBounceMedium: all 0.6s cubic-bezier(0.175, 0.98, 0.32, 1.275);
+
+/****** BORDERS ******/
+$borderRadiusSmall: 6px;
+$borderRadiusMedium: 12px;
+
+/****** BOX SHADOWNS ******/
+$boxShadowSmallLight: 0 6px 16px rgba(0, 0, 0, 0.2);
+$boxShadowMediumLight: 0 12px 24px rgba(0, 0, 0, 0.2);
+$boxShadowSmallDark: 0 6px 16px rgba(0, 0, 0, 0.8);
+$boxShadowMediumDark: 0 12px 24px rgba(0, 0, 0, 0.8);
