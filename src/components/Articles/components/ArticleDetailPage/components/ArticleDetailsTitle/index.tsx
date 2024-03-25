@@ -8,7 +8,7 @@ import AuthorDisplayDetails from "./components/AuthorAndOtherDetails";
 function ArticleDetailsTitle(props: ArticleDetailsTitleProps) {
   return (
     <ComponentSection identifier={"title"}>
-      <h1 className={clx(style.title, CommissionerFlair.className, style.h1)}>
+      <h1 className={clx(style.title, CommissionerFlair.className)}>
         {props.text.title}
       </h1>
       <AuthorDisplayDetails props={props} hasDate={true}/>

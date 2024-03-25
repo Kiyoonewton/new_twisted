@@ -31,7 +31,7 @@ const DisplayDetails: FC<{
       style={{ paddingTop: "30px" }}
     >
       <div className={clx(style["details__row"], style.gap)}>
-        <div className={style.article__author}>
+        <div className={clx(style.article__author, style.text)}>
           <div className={style.user__image}>
             <ComponentLazyImage
               src={props.user.image.src}
@@ -41,23 +41,21 @@ const DisplayDetails: FC<{
               height={60}
             />
           </div>
-          <p className={clx(style.user__name, style.p)}>
+          <p className={style.user__name}>
             BY <span className={style.span}> {props.user.name}</span>
           </p>
         </div>
         {hasDate && (
-          <>
+          <div className={clx(style.text, style.content__date)}>
             <h4
               className={clx(
                 style.article__date,
-                style.h4,
-                style["weight--bold"]
               )}
             >
               {moment(props.details.date, "DD/MM/YYYY")?.format("DD MMM YYYY")}
             </h4>
             {props.details.time && (
-              <p className={style.p}>
+              <p>
                 <b className={clx(style.article__note)}>
                   <svg
                     width="22"
@@ -75,7 +73,7 @@ const DisplayDetails: FC<{
                 </b>
               </p>
             )}
-          </>
+          </div>
         )}
       </div>
       {/* <div className={"details__row details__row--actions"}>

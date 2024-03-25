@@ -19,6 +19,7 @@
 import { FC } from "react";
 import ComponentSection from "../ComponentSection";
 import style from "./styles.module.scss"
+import clx from "classnames"
 
 const ArticleDetailsContent: FC<{ content: string }> = (props) => {
   // // Refs
@@ -56,10 +57,11 @@ const ArticleDetailsContent: FC<{ content: string }> = (props) => {
       <ComponentSection identifier={"content"}>
         <div className={style["contents"]}>
           <div
-            className={style["contents__item"]}
+            className={clx(style["contents__item"], style.text)}
             // ref={contents}
             dangerouslySetInnerHTML={{ __html: props.content }}
           ></div>
+         
           {/* <ArticleDetailsNavigation
             prevPost={props.prevPost}
             nextPost={props.nextPost}

@@ -5,23 +5,15 @@ import {
   getCategoryPageData as getArticleCategoryPageData,
   getPageData as getArticlePageData,
 } from "@/helpers/render/renderArticlePage";
-import { Metadata } from "next";
-import { title } from "process";
-import { PageContentProps } from "../../../components/Articles/components/ArticleDetailPage/types";
 import { FB_APP_ID, FB_PAGE_ID, SITE_URL } from "@/config";
+import { modifyContent } from "@/helpers/modifyContent";
 
 type Props = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
-// export const metadata: Metadata = {
-//   title: "gooddays2",
-//   description: "better",
-// };
-
 export const generateMetadata = async ({ params, ...context }: Props) => {
   const data = await getProps({ params, ...context?.searchParams });
-  //   console.log(data.props.data);
   const page_content = data.props.data.page_content;
 
   return {
@@ -51,13 +43,11 @@ export const generateMetadata = async ({ params, ...context }: Props) => {
 
 const Article = async ({ params, ...context }: Props) => {
   const data = await getProps({ params, ...context?.searchParams });
-  // console.log("technok", data);
+  const articleData = modifyContent(data?.props);
 
-  // switch (props?.data?.type) {
-  //     case "article":
   return (
     <>
-      <ArticleDetailPage props={data?.props} />
+      <ArticleDetailPage props={articleData} />
     </>
   );
   //     case "articles":
@@ -77,7 +67,7 @@ async function getProps(props: { [key: string]: any }) {
     const categoryPageData = await getArticleCategoryPageData(
       categories,
       category,
-      pageSlug,
+      pageSlug
     );
     return categoryPageData;
   }

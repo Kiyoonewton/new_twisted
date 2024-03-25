@@ -1,8 +1,9 @@
 "use client";
 import React, { FC } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import clx from "classnames";
 import style from "./styles.module.scss";
+import { commonProps } from "./types";
 
 const dolos_url = "img.wazobia.tech";
 
@@ -53,7 +54,7 @@ const ComponentLazyImage: FC<{
   alt: string;
   width: number;
   height?: number;
-  fit?: string;
+  fit?: "ObjectFit | undefined";
   priority?: boolean;
   src: string;
   position?: string;
@@ -62,14 +63,14 @@ const ComponentLazyImage: FC<{
   click?: () => void;
 }> = (props) => {
   const renderImage = () => {
-    const commonProps = {
+    const commonProps: commonProps = {
       alt: props.alt
         ? props.alt
         : "Twisted: Unserious food tastes seriously good.",
       layout: props.width && props.height ? "fixed" : "fill",
       width: props.width,
       height: props.height,
-      objectFit: props.fit ? props.fit : "cover",
+    //   objectFit: props.fit && "ObjectFit",
       priority: props.priority,
       onError: (e: any) => {
         e.currentTarget.onError = null;
