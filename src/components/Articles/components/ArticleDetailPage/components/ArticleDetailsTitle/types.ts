@@ -7,7 +7,7 @@ export type ArticleDetailsTitleProps = {
     image: { src: string; blur: string; alt: string };
     id: string;
   };
-  hero_image: { hero_images: HeroImagesProps };
+  // hero_image: { hero_images: HeroImagesProps };
   details: { date: string; time: string };
   id: string;
   tags: any;

@@ -92,43 +92,10 @@ function LayoutArticle(props: LayoutArticleProps) {
         as="script"
       /> */}
       {/* </HeadTags> */}
-      <main
-        data-scroll-container
-        // ref={containerRef}
-        style={{ position: "relative" }}
-      >
+      <main data-scroll-container style={{ position: "relative" }}>
         <article data-scroll-section>
-          <header
-            data-scroll
-            data-scroll-sticky
-            data-scroll-target={"#page"}
-            style={{
-              position: "sticky",
-              top: 0,
-              zIndex: 999,
-            }}
-          >
-            {/* <SharedHeader
-              isTransparent={
-                props.headerTransparent ? props.headerTransparent : false
-              }
-            /> */}
-          </header>
-          <div
-            id={"page"}
-            className={clx(style.page, style[`page--${page.identifier}`])}
-          >
-            {props.children}
-          </div>
-          <footer>
-            {/* <SharedFooter
-              smallFooter={props.smallFooter ? props.smallFooter : false}
-            >
-              {props.footerContent && props.footerContent}
-            </SharedFooter> */}
-          </footer>
+          <div data-scroll-section>{props.children}</div>
         </article>
-        {/* {showPopup && <FreeRecipeList closeModal={() => setShowPopup(false)} />} */}
       </main>
     </section>
   );

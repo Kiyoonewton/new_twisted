@@ -1,0 +1,181 @@
+/* Fonts */
+
+.h1 {
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  padding: 0;
+  color: $tertiaryColor;
+  font-family: $primaryFontFamily;
+  font-size: 80px;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  line-height: 1.05;
+
+  @include media-lt-1200 {
+    font-size: 8vw;
+  }
+
+  @include media-lt-600 {
+    font-size: 38px;
+  }
+}
+
+.h2 {
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  padding: 0;
+  color: $tertiaryColor;
+  font-family: $primaryFontFamily;
+  font-size: 50px;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  line-height: 1.05;
+
+  @include media-lt-600 {
+    font-size: 32px;
+  }
+}
+
+.h3 {
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  padding: 0;
+  color: $tertiaryColor;
+  font-family: $primaryFontFamily;
+  font-size: 40px;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  line-height: 1.2;
+
+  @include media-lt-600 {
+    font-size: 28px;
+  }
+}
+
+.h4 {
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  padding: 0;
+  color: $tertiaryColor;
+  font-family: $primaryFontFamily;
+  font-size: 30px;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  line-height: 1.2;
+
+  @include media-lt-600 {
+    font-size: 24px;
+  }
+}
+
+.h5 {
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  padding: 0;
+  color: $tertiaryColor;
+  font-family: $primaryFontFamily;
+  font-size: 24px;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  line-height: 1.2;
+
+  @include media-lt-600 {
+    font-size: 18px;
+  }
+}
+
+.h6 {
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  padding: 0;
+  color: $tertiaryColor;
+  font-family: $primaryFontFamily;
+  font-size: 16px;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  line-height: 1.2;
+
+  @include media-lt-600 {
+    font-size: 14px;
+  }
+}
+
+.p {
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  padding: 0;
+  color: $tertiaryColor;
+  font-family: $primaryFontFamily;
+  font-size: 18px;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  line-height: 1.6;
+
+  @include media-lt-600 {
+    font-size: 14px;
+  }
+}
+
+.label {
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  padding: 0;
+  color: $tertiaryColor;
+  font-family: $primaryFontFamily;
+  font-size: 16px;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  line-height: 1.2;
+
+  @include media-lt-600 {
+    font-size: px;
+  }
+}
+
+.sup {
+  color: $dangerColor;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.p,
+.span {
+  /* Font Styles */
+  &.font--secondary {
+    font-family: $secondaryFontFamily;
+  }
+
+  &.font--tertiary {
+    font-family: $tertiaryFontFamily;
+  }
+
+  /* Font Weights */
+  &.weight--light {
+    font-weight: 300;
+    font-variation-settings: "wght" 300;
+  }
+
+  &.weight--regular {
+    font-weight: 400;
+    font-variation-settings: "wght" 400;
+  }
+
+  &.weight--medium {
+    font-weight: 500;
+    font-variation-settings: "wght" 500;
+  }
+
+  &.weight--bold {
+    font-weight: 700;
+    font-variation-settings: "wght" 700;
+  }
+
+  &.weight--black {
+    font-weight: 900;
+    font-variation-settings: "wght" 900;
+  }
+}

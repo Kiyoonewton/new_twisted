@@ -1,6 +1,8 @@
 @import "@/styles/styles";
 
 .article-details {
+  overflow: visible;
+
   &--container {
     width: 100vw;
     display: grid;
@@ -27,5 +29,16 @@
     @include media-lt-1200 {
       padding: 40px 6% 0;
     }
+  }
+}
+
+.sidebar-ads {
+  position: sticky;
+  // top: 50px;
+  padding: 80px 100px 0 0;
+  width: 100%;
+  &--item {
+    min-height: 250px;
+    background: $greyColor-100;
   }
 }
