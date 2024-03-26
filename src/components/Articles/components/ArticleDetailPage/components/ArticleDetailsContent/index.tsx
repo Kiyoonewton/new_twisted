@@ -15,11 +15,11 @@
 //   TIKTOK_URL,
 //   TWITTER_PLATFORM_URL,
 // } from "../../../config";
-
+"use client";
 import { FC } from "react";
 import ComponentSection from "../ComponentSection";
-import style from "./styles.module.scss"
-import clx from "classnames"
+import style from "./styles.module.scss";
+import clx from "classnames";
 
 const ArticleDetailsContent: FC<{ content: string }> = (props) => {
   // // Refs
@@ -51,39 +51,26 @@ const ArticleDetailsContent: FC<{ content: string }> = (props) => {
   //         tag: "body",
   //     });
   // }, []);
+  // console.log(props.content);
 
   return (
     <>
       <ComponentSection identifier={"content"}>
-        <div className={style["contents"]}>
-          <div
-            className={clx(style["contents__item"], style.text)}
-            // ref={contents}
-            dangerouslySetInnerHTML={{ __html: props.content }}
-          ></div>
-         
-          {/* <ArticleDetailsNavigation
+        {/* <div className={style["contents"]}> */}
+        <div
+          className={clx(style.contents__item, style.text)}
+          // ref={contents}
+          dangerouslySetInnerHTML={{ __html: props.content }}
+        ></div>
+
+        {/* <ArticleDetailsNavigation
             prevPost={props.prevPost}
             nextPost={props.nextPost}
           /> */}
-        </div>
+        {/* </div> */}
       </ComponentSection>
     </>
   );
 };
-
-// ArticleDetailsContent.propTypes = {
-//     content: PropTypes.arrayOf(PropTypes.object),
-//     user: PropTypes.shape({
-//         name: PropTypes.string,
-//         image: PropTypes.shape({
-//             src: PropTypes.string,
-//             alt: PropTypes.string,
-//         }),
-//     }),
-//     showSocialModal: PropTypes.func,
-//     prevPost: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-//     nextPost: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-// };
 
 export default ArticleDetailsContent;

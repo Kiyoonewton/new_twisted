@@ -43,7 +43,8 @@ export const generateMetadata = async ({ params, ...context }: Props) => {
 
 const Article = async ({ params, ...context }: Props) => {
   const data = await getProps({ params, ...context?.searchParams });
-  const articleData = modifyContent(data?.props);
+  const articleData = await modifyContent(data?.props);
+  // console.log(data?.props);
 
   return (
     <>

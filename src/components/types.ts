@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export type LayoutArticleProps = {
-  page: LayoutArticle_pageProps;
+  page?: LayoutArticle_pageProps;
   article?: LayoutArticle_contentProps;
   children: ReactNode;
 };

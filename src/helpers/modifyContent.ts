@@ -1,77 +1,44 @@
 export async function modifyContent(data: { [key: string]: any }) {
   const page_content = data.data.page_content;
   let content = page_content.content;
-  console.log(data?.data);
 
-  content = await content.replace(
-    /<iframe.*?youtube.com\/embed\/.*?<\/iframe>/g,
-    function (match: string) {
-      return match.replace(
-        '<iframe class="ql-video"',
-        '<div class="youtube-container"><iframe class="ql-video video"'
-      );
-    }
+  const instagramRegex =
+    /<iframe class="ql-video" frameborder="0" allowfullscreen="true" src="https:\/\/www\.instagram\.com/g;
+  content = content.replace(
+    instagramRegex,
+    '<div class="custom__embed instagram__embed"><iframe class="ql-video" frameborder="0" allowfullscreen="true" src="https://www.instagram.com'
   );
 
-  content = await content.replace(
-    /<iframe.*?instagram.com\/.*?<\/iframe>/g,
-    function (match: string) {
-      return match.replace(
-        '<iframe class="ql-video"',
-        '<div class="custom__embed instagram__embed"><iframe class="ql-video"'
-      );
-    }
+  const facebookRegex =
+    /<iframe class="ql-video" frameborder="0" allowfullscreen="true" src="https:\/\/www\.facebook\.com/g;
+  content = content.replace(
+    facebookRegex,
+    '<div class="fb-post custom__embed"><iframe class="ql-video" frameborder="0" allowfullscreen="true" src="https://www.facebook.com'
   );
 
-  content = await content.replace(
-    /<iframe.*?facebook.com\/.*?<\/iframe>/g,
-    function (match: string) {
-      return match.replace(
-        '<iframe class="ql-video"',
-        '<div class="fb-post custom__embed"><iframe class="ql-video"'
-      );
-    }
+  const youtubeRegex =
+    /<iframe class="ql-video" frameborder="0" allowfullscreen="true" src="https:\/\/www\.youtube\.com/g;
+  content = content.replace(
+    youtubeRegex,
+    '<div class="youtube-container"><iframe class="ql-video video" frameborder="0" allowfullscreen="true" src="https://www.youtube.com'
   );
 
-  content = await content.replace(
-    /<iframe.*?twitter.com\/.*?<\/iframe>/g,
-    function (match: string) {
-      return match.replace(
-        '<iframe class="ql-video"',
-        '<div class="custom__embed jtv__embed"><iframe class="ql-video"'
-      );
-    }
-  );
+  // const twitterRegex =
+  //   /<iframe class="ql-video" frameborder="0" allowfullscreen="true" src="https:\/\/www\.twitter\.com/g;
+  // content = content.replace(
+  //   twitterRegex,
+  //   '<iframe class="ql-video" frameborder="0" allowfullscreen="true" src="https://www.twitter.com'
+  // );
 
-  content = await content.replace(
-    /<iframe.*?jwplatform.com\/.*?<\/iframe>/g,
-    function (match: string) {
-      return match.replace(
-        '<iframe class="ql-video"',
-        '<div class="custom__embed jtv__embed"><iframe class="ql-video"'
-      );
-    }
-  );
-
-  content = await content.replace(
-    /<iframe.*?vimeo.com\/.*?<\/iframe>/g,
-    function (match: string) {
-      return match.replace(
-        '<iframe class="ql-video"',
-        '<div class="custom__embed jtv__embed"><iframe class="ql-video"'
-      );
-    }
-  );
-
-  content = await content.replace(
-    /<iframe.*?tiktok.com\/.*?<\/iframe>/g,
-    function (match: string) {
-      return match.replace(
-        '<iframe class="ql-video"',
-        '<div class="custom__embed tiktok__embed"><iframe class="ql-video"'
-      );
-    }
-  );
+  // content = await content.replace(
+  //   /<iframe.*?tiktok.com\/.*?<\/iframe>/g,
+  //   function (match: string) {
+  //     return match.replace(
+  //       '<iframe class="ql-video"',
+  //       '<div class="custom__embed tiktok__embed"><iframe class="ql-video"'
+  //     );
+  //   }
+  // );
 
   content = await content.replace(/<\/iframe>/g, function (match: string) {
     return match.replace("</iframe>", "</iframe></div>");
@@ -95,7 +62,7 @@ export async function modifyContent(data: { [key: string]: any }) {
         posted_time_ago: page_content.posted_time_ago,
         reading_time: page_content.reading_time,
         categories: page_content.categories,
-        related_post: page_content.related_post,
+        related_posts: page_content.related_post,
         meta_tags: page_content.meta_tags,
         facebook_tags: page_content.facebook_tags,
         twitter_tags: page_content.twitter_tags,

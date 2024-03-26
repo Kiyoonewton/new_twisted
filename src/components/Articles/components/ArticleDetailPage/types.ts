@@ -21,7 +21,7 @@ export type PageContentProps = {
   meta_tags: Metas_tagProps;
   facebook_tags: Metas_tagProps;
   twitter_tags: Metas_tagProps;
-  id: string;
+  id?: string;
 };
 
 export type AuthorProps = {

@@ -34,11 +34,21 @@
 
 .sidebar-ads {
   position: sticky;
-  // top: 50px;
+  top: 0px;
   padding: 80px 100px 0 0;
   width: 100%;
   &--item {
     min-height: 250px;
     background: $greyColor-100;
   }
+}
+
+.title {
+  font-size: 50px;
+  font-weight: 900;
+  color: $tertiaryColor;
+  line-height: 1.05;
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  padding: 0;
 }

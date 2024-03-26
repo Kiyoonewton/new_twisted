@@ -3,24 +3,31 @@ import moment from "moment";
 import ComponentLazyImage from "@/components/Base-component/LazyImageComponent";
 import style from "./style.module.scss";
 import clx from "classnames";
+import { convertTimestampToDateString } from "@/helpers/functions";
 
-const DisplayDetails: FC<{
+const AuthorAndOtherDetails: FC<{
   props: { [key: string]: any };
-  //   savedUserContent;
-  //   setShowUnfollow;
-  //   authContext;
-  //   userSavedContentContext;
-  //   setSavedContent;
   hasDate: boolean;
-}> = ({
-  props,
-  //   savedUserContent,
-  //   setShowUnfollow,
-  //   authContext,
-  //   userSavedContentContext,
-  //   setSavedContent,
-  hasDate,
-}) => {
+}> = ({ props, hasDate }) => {
+  const author = props?.data?.page_content.author;
+
+  const data = {
+    user: {
+      name: author ? author.name : "",
+      src:
+        author && author.profile_photo
+          ? author.profile_photo.sizes.thumbnail
+          : "/image-twisted-placeholder.svg",
+      alt: author && author.profile_photo ? author.profile_photo.alt : "",
+      id: author?.id ?? "",
+    },
+    details: {
+      date:
+        convertTimestampToDateString(props.data.page_content.post_date) ?? "",
+      time: props.data.page_content.reading_time ?? "",
+    },
+  };
+
   return (
     <div
       className={clx(
@@ -34,27 +41,23 @@ const DisplayDetails: FC<{
         <div className={clx(style.article__author, style.text)}>
           <div className={style.user__image}>
             <ComponentLazyImage
-              src={props.user.image.src}
-              alt={props.user.image.alt}
+              src={data.user.src}
+              alt={data.user.alt}
               position={"relative"}
               width={60}
               height={60}
             />
           </div>
           <p className={style.user__name}>
-            BY <span className={style.span}> {props.user.name}</span>
+            BY <span className={style.span}> {data.user.name}</span>
           </p>
         </div>
         {hasDate && (
           <div className={clx(style.text, style.content__date)}>
-            <h4
-              className={clx(
-                style.article__date,
-              )}
-            >
-              {moment(props.details.date, "DD/MM/YYYY")?.format("DD MMM YYYY")}
+            <h4 className={clx(style.article__date)}>
+              {moment(data.details.date, "DD/MM/YYYY")?.format("DD MMM YYYY")}
             </h4>
-            {props.details.time && (
+            {data.details.time && (
               <p>
                 <b className={clx(style.article__note)}>
                   <svg
@@ -69,7 +72,7 @@ const DisplayDetails: FC<{
                       fillRule="nonzero"
                     />
                   </svg>
-                  {props.details.time}
+                  {data.details.time}
                 </b>
               </p>
             )}
@@ -132,4 +135,4 @@ const DisplayDetails: FC<{
   );
 };
 
-export default DisplayDetails;
+export default AuthorAndOtherDetails;
